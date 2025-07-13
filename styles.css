@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Delicious+Handrawn&family=Tangerine:wght@400;700&family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+
+header {
+  font-family: 'Tangerine', cursive;
+  font-size: 18px;
+  line-height: 0.7;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #000000;
+  margin: 6px auto;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación para transformar en "X" */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+  background-color: #333;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+  background-color: #333;
+}
+
+/* Estilo de la barra lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background: linear-gradient(#fde7e3, #eae3d8);
+  padding: 20px;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar h2 {
+  font-family: "Tangerine", cursive;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  font-family: 'Truculenta', sans-serif;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  display: block;
+  transition : background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background: #444;
+  color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.sidebar .footer {
+  bottom: 60px;
+  left: 20px;
+  color: #F8E1E9;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  color: #333;
+  font-family: "Tangerine", cursive;
+}
+
+/* Contenido principal */
+.content {
+  margin-left: 200px;
+  padding: 20px;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+/*/carrusell/*/
+.content-carousel {
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-slide .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #F8E1E9;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.3;
+  color: #F8E1E9;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Galería de imágenes */
+
+#galeria {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Tangerine', cursive;
+  font-size: 35px;
+  color: #333;
+}
+
+.gallery {
+  max-width: 800px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #F8E1E9;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: 'Delicious Handrawn', cursive;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item:hover .caption {
+  opacity: 1;
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+  .hamburger {
+  display: block;
+  }
+
+  .sidebar {
+  transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+  transform: translateX(0);
+  }
+
+  .content {
+  margin-left: 0;
+  }
+
+  .carousel-slide img {
+    height: 300px;
+  }
+    
+  .gallery-item img {
+    height: 150px;
+  }
+ 
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+}
