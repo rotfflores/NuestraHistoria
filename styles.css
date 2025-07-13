@@ -234,7 +234,6 @@ header {
   padding: 10px;
   text-align: center;
   font-size: 14px;
-  opacity: 0;
   transition: opacity 0.3s ease;
   font-family: 'Delicious Handrawn', cursive;
 }
