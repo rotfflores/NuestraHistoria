@@ -13,7 +13,7 @@ header {
 }
 
 .hamburger {
-  position: fixed;
+  position: absolute;
   top: 15px;
   left: 15px;
   width: 40px;
