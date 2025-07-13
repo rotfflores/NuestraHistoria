@@ -241,10 +241,6 @@ header {
   transform: scale(1.05);
 }
 
-.gallery-item:hover .caption {
-  opacity: 1;
-}
-
 /* Responsividad */
 @media screen and (max-width: 768px) {
   .hamburger {
