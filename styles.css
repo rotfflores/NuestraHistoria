@@ -187,6 +187,29 @@ header {
   right: 10px;
 }
 
+/* dias de novios */
+.dias-de-novios {
+  text-align: center;
+  font-family: 'Tangerine', cursive;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  background: linear-gradient(#fde7e3, #eae3d8);
+  height: auto;
+}
+
+.dias-de-novios h2 {
+  font-size: 35px;
+  color: #333;
+  padding: 10px 0;
+}
+.contador {
+  padding-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  font-family: 'Delicious Handrawn', cursive;  
+}
+
 /* Galería de imágenes */
 
 #galeria {

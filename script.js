@@ -60,3 +60,11 @@ const hamburger = document.querySelector('.hamburger');
     // Pausar el deslizamiento automático al pasar el ratón por encima
     carouselContainer.addEventListener('mouseenter', stopAutoSlide);
     carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+    // Script para el contador de días
+    const startDate = new Date('2025-05-21');
+    const today = new Date();
+    const diferenceInTime = today - startDate;
+    const dias = Math.floor(diferenceInTime / (1000 * 3600 * 24));
+    const diasTotalesElement = document.getElementById('dias-totales');
+    diasTotalesElement.textContent = dias;
