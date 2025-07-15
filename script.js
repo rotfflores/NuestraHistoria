@@ -62,7 +62,7 @@ const hamburger = document.querySelector('.hamburger');
     carouselContainer.addEventListener('mouseleave', startAutoSlide);
 
     // Script para el contador de días
-    const startDate = new Date('2025-05-21');
+    const startDate = new Date('2025-06-21');
     const today = new Date();
     const diferenceInTime = today - startDate;
     const dias = Math.floor(diferenceInTime / (1000 * 3600 * 24));
