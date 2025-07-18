@@ -282,6 +282,31 @@ header h3 {
   transform: scale(1.05);
 }
 
+/* Carta */
+
+.content-carta {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Tangerine', cursive;
+  font-size: 35px;
+  color: #333;
+  padding: 20px;
+}
+
+.content-carta p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.content-carta span {
+  font-weight: bold;
+  font-size: 25px;
+}
+
 /* Responsividad */
 @media screen and (max-width: 768px) {
   .hamburger {
