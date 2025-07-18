@@ -291,6 +291,69 @@ header h3 {
   font-size: 35px;
   color: #333;
   padding: 20px;
+  display: none;
+}
+
+.content-carta.active {
+  display: block;
+}
+
+.carta-password {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.carta-password h3 {
+  font-family: 'Tangerine', cursive;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.carta-password p {
+  font-family: 'Delicious Handrawn', cursive;
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.carta-password input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.carta-password button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 20px 0;
+  font-family: 'truculenta', sans-serif;
+  background-color: #F8E1E9;
+}
+
+.carta-password button:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+  cursor: pointer;
+}
+
+.carta-password .error-message {
+  color: #D32F2F;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
 }
 
 .content-carta p {

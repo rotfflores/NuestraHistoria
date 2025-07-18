@@ -1,22 +1,22 @@
-const hamburger = document.querySelector('.hamburger');
+document.addEventListener("DOMContentLoaded", function() {
+    // Hamburguesa
+    const hamburger = document.querySelector('.hamburger');
     const sidebar = document.querySelector('.sidebar');
     const overlay = document.querySelector('.overlay');
 
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
     });
 
-    // Cerrar la barra al hacer clic en el overlay
     overlay.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      sidebar.classList.remove('active');
-      overlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
     });
 
-
-    // Script para el carrusel
+    // Carrusel
     const carouselContainer = document.querySelector('.carousel-container');
     const slides = document.querySelectorAll('.carousel-slide');
     const prevButton = document.querySelector('.prev');
@@ -25,46 +25,82 @@ const hamburger = document.querySelector('.hamburger');
     let autoSlideInterval;
 
     function updateCarousel() {
-      carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
     function startAutoSlide() {
-      autoSlideInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateCarousel();
-      }, 5000); // Cambia cada 5 segundos
+        autoSlideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        }, 5000);
     }
 
     function stopAutoSlide() {
-      clearInterval(autoSlideInterval);
+        clearInterval(autoSlideInterval);
     }
 
-    // Controles manuales
-    nextButton.addEventListener('click', () => {
-      stopAutoSlide();
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateCarousel();
-      startAutoSlide();
-    });
+    if (nextButton && prevButton) { // Evitar error si no hay carrusel en la página
+        nextButton.addEventListener('click', () => {
+            stopAutoSlide();
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+            startAutoSlide();
+        });
 
-    prevButton.addEventListener('click', () => {
-      stopAutoSlide();
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateCarousel();
-      startAutoSlide();
-    });
+        prevButton.addEventListener('click', () => {
+            stopAutoSlide();
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+            startAutoSlide();
+        });
 
-    // Iniciar el deslizamiento automático al cargar la página
-    startAutoSlide();
+        startAutoSlide();
+        carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+        carouselContainer.addEventListener('mouseleave', startAutoSlide);
+    }
 
-    // Pausar el deslizamiento automático al pasar el ratón por encima
-    carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-    carouselContainer.addEventListener('mouseleave', startAutoSlide);
-
-    // Script para el contador de días
+    // Contador de días
     const startDate = new Date('2025-06-21');
     const today = new Date();
     const diferenceInTime = today - startDate;
     const dias = Math.floor(diferenceInTime / (1000 * 3600 * 24));
     const diasTotalesElement = document.getElementById('dias-totales');
-    diasTotalesElement.textContent = dias;
+    if (diasTotalesElement) {
+        diasTotalesElement.textContent = dias;
+    }
+
+    // Contraseña para mostrar carta
+    const cartaPassword = document.getElementById("carta-password");
+    const contentCarta = document.querySelector(".content-carta");
+    const passwordInput = document.getElementById("password-input");
+    const errorMessage = document.getElementById("password-error");
+    const correctPassword = "o";
+
+    if (cartaPassword && contentCarta && passwordInput && errorMessage) {
+        if (localStorage.getItem("cartaUnlocked") === "true") {
+            cartaPassword.style.display = "none";
+            contentCarta.classList.add("active");
+        }
+
+        function checkPassword() {
+            const password = passwordInput.value;
+            if (password === correctPassword) {
+                cartaPassword.style.display = "none";
+                contentCarta.classList.add("active");
+                localStorage.setItem("cartaUnlocked", "true");
+                errorMessage.style.display = "none";
+            } else {
+                errorMessage.style.display = "block";
+                passwordInput.value = "";
+            }
+        }
+
+        document.getElementById("submit-password").addEventListener("click", checkPassword);
+
+        passwordInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                checkPassword();
+            }
+        });
+    }
+});
